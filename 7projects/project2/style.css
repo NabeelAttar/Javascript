@@ -1,0 +1,26 @@
+body{
+    background-color: #717171;
+    color: white;
+}
+h1{
+    display: flex;
+    justify-content: center;
+    margin: 50px;
+}
+p{
+    display: flex;
+    justify-content: center;
+    /* margin: 30px; */
+}
+h3{
+    margin-bottom: 30px;
+}
+button{
+    width: 200px;
+    height: 50px;
+    font-size: large;
+    margin: 50px;
+}
+form{
+    text-align: center;
+}
