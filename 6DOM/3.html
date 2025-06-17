@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chai aur code</title>
+</head>
+<body style="background-color: #212121; color: white;">
+</body>
+<script>
+    const div = document.createElement("div")
+    console.log(div);
+    div.className = "main"
+    div.id = Math.round(Math.random() * 10 + 1)
+
+    // for creating custom attributes
+    div.setAttribute("title", "generated title")
+    div.style.backgroundColor = "green"
+    div.style.padding = "10px"
+
+    // setAttribute like attributes are preferred as it directly sets instead of overwriting initial value
+    //div.innerText = "Chai aur Code" //hence this is not recommended
+
+    const addText = document.createTextNode("Chai aur Code")
+    div.appendChild(addText)
+    //now the tag is created just like on html, now attach it on the page
+    document.body.appendChild(div)
+</script>
+</html>
