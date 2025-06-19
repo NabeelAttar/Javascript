@@ -1,0 +1,51 @@
+body{
+/* background: linear-gradient(45deg, yellow, green, cyan); */
+    background-color: #212121;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* justify-content: space-between; */
+    height: 90vh;   
+}
+h1{
+    padding-top: 50px;
+    font-size: 3rem;
+    animation: slideIn 0.8s ease-out;
+}
+h3{
+    padding-bottom: 30px;
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+}
+label{
+    font-weight: 700;
+    font-size: 1.2rem;
+    margin-right: 10px;
+}
+#Guess{
+    border: 5px solid grey
+}
+#Submit{
+    margin: 50px;
+    border-radius: 10px;
+    padding: 15px;
+    font-size: large;
+    background-color: rgb(130, 121, 121);
+    color: black;
+}
+
+.newGame {
+  margin-top: 1rem;
+  padding: 0.6rem 1.2rem;
+  background: #007BFF;
+  border: none;
+  color: white;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.newGame:hover {
+  background: #0056b3;
+}

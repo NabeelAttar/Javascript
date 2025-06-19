@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Animated Number Guessing Game</title>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+  <div class="game-container fade-in">
+    <h1 class="title slide-in">Guess the Number!</h1>
+    <h3 class="subtitle">I’m thinking of a number between 1 and 100. You have <span id="Remaining">10</span> tries.</h3>
+
+    <form class="guess-form">
+      <label for="Guess">Your Guess:</label>
+      <input type="text" id="Guess" autocomplete="off"/>
+      <button type="submit" id="Submit">Submit</button>
+    </form>
+
+    <div class="displayMessage">
+      <p>Previous Guesses: <span id="GuessList"></span></p>
+      <p id="feedback" class="feedback"></p>
+    </div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
