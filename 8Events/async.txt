@@ -1,0 +1,8 @@
+javascript is synchorous that is code will be executed ine by one and single threaded all work is done on single threaded, and hence slow 
+execution context = each operation waits for the last one to complete itself
+
+blocking code : blocks the flow of program, no program can execute befpre its execution -> read file sync, cant read file on the backr=ground jb tk file execute ho rha hai
+non blocking code: does not block execution -> read file async -> can read file sath hi sath main non blocking code ka execution
+reading file, getting data from file is heavy operation 
+
+jsengine asynchoronous  diagram from chai aur code : video 37 : 12:02

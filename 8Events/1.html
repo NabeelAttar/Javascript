@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>htnml Events </title>
+</head>
+<body style="background-color: #414141; color: aliceblue;">
+    <h2>Amazing image</h2>
+    <div >
+        <ul id="images">
+            <li><img width="200px" id="photoshop" src="https://images.pexels.com/photos/3561339/pexels-photo-3561339.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt="photoshop"></li>
+            <li><img width="200px" id="japan" src="https://images.pexels.com/photos/3532553/pexels-photo-3532553.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""></li>
+            <li><img width="200px" id="river" src="https://images.pexels.com/photos/3532551/pexels-photo-3532551.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""></li>
+            <li><img width="200px" id="owl" src="https://images.pexels.com/photos/3532552/pexels-photo-3532552.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt="" ></li>
+            <li><img width="200px" id="prayer" src="https://images.pexels.com/photos/2522671/pexels-photo-2522671.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""></li>
+            <li><a style="color: aliceblue;" href="https://google.com" id="google">Google</a></li>
+        </ul>
+   </div>
+</body>
+<script>
+    // document.getElementById('owl').onclick = function(){
+    //     alert("owl clicked")
+    // }
+    // attachEvent() => old interent explorere method
+    // juery - on- all old metbhods , best method is eventlisterner
+
+    //all questions like give time when the user clicked on that particular button, or create a circle where he clicked, these wuestons are sovlable by eventlistener
+    // document.getElementById('owl').addEventListener('click', function(e){
+    //     console.log(e.timeStamp); //gives the time at which the button was clicked in milliseconds after the page was loaded     
+    // }, false) // this false value is by default
+
+    //types of events : mouse evnets , keyboars events, form events like submit and reset, clipboars events liek copy paste,
+    //  netweok events like load , error , timing events like timeout, drag and drop events likee dragstart, dragenter,
+    // animation events , transition events, animationstart, other events like resize, scroll , orientation change, etc
+    //e.preventdefualt()- to prevent default actions like automatically submittiong form,
+    //e.target = the target jisse button jiske click krnese event hua
+    //e.currentTarget = the element to which is eventlistener is attached
+    // srcElement: Same as target, used in older versions of Internet Explorer.
+    // toElement (⚠️ Obsolete)
+    // Description: Used with mouseover/mouseout events to indicate the element the pointer entered.
+    // Note: Largely replaced by relatedTarget
+    // clientX, clientY : horizontal and vertical coordinates of the mouse position relative to the viewport
+    // sreenX, screenY: Mouse position relative to the screen (monitor resolution)
+    // offsetX / offsetY: Mouse position relative to the event target element’s top-left corner.
+    // altKey, ctrlKey, shiftKey : Booleans indicating whether these modifier keys were held when the event occurred.
+    // keyCode (⚠️ Deprecated): The numeric code of the key pressed (e.g., 13 for Enter).Note: Use event.key or event.code instead.
+
+    // document.getElementById('images').addEventListener('click', function (){
+    //     console.log("ul clicked");
+    // }, false);
+    // document.getElementById('owl').addEventListener('click', function (e){
+    //     console.log("owl clicked");
+    //     e.stopPropagation() //doesnt bubble to above element
+    // }, false)
+    //when event propogation that is third parameter is false, as owl is inside li and li is inside ul, when owl is clicked first owl clicked logs in console then ul clicked
+    //this is bubbling mode of event propagation, means going up form owl to li to images
+    
+    //similarly when third parameter is true, capturing mode is enabled which is top to bottom, so first ul clicked then owl clicked 
+
+    // document.getElementById('google').addEventListener('click', function(e){
+    //     e.preventDefault()
+    //     e.stopPropagation()
+    //     console.log("google clicked");
+    // })
+
+    //create a function to delete image when clicked
+    document.querySelector('#images').addEventListener('click', function(e){
+        console.log(e);
+        console.log(e.target);
+        console.log(e.target.parentNode);
+        console.log(e.target.tagName);
+        if (e.target.tagName === "IMG") {
+            let removeIt = e.target.parentNode
+            // removeIt.remove()
+            removeIt.parentNode.removeChild(removeIt)
+        }
+    })
+</script>
+</html>

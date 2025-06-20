@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Whats the key?</title>
+    <style>
+        body{
+            background-color: #414141;
+            color: white;
+            display: flex;
+            justify-content: center;
+            text-align: center;
+            align-items: center;
+            height: 90vh;
+        }
+        table, th, td {
+            border: 1px solid white;
+            
+        }
+        .insert{
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            
+        }
+        table{
+            height: auto;
+            width: 400px;
+            font-size: 1.5rem;
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="project">
+        <h2>Press the key and watch the magic!</h2>
+        <div class="insert"></div>
+    </div>
+</body>
+<script>
+    const insert = document.querySelector('.insert')
+let clickedOnce = false
+let counter = 0
+window.addEventListener('keydown', (e) => {
+    
+    if (!clickedOnce) {
+        counter++;
+        insert.innerHTML = `
+        <div class="color">
+            <table>
+            <thead>
+                <tr>
+                    <th>Sr. no.</th>
+                    <th>Key</th>
+                    <th>KeyCode</th>
+                    <th>Code</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>${counter}.</th>
+                    <td>${e.key}</td>
+                    <td>${e.keyCode}</td>
+                    <td>${e.code}</td>
+                </tr>
+            </tbody>
+            </table>
+        </div>
+        `
+        clickedOnce = true
+        
+    }
+    else {
+        counter++
+        // Select the <tbody> to append new rows
+        const tbody = insert.querySelector('tbody')
+        const newtr = document.createElement('tr')
+
+        const firsttd = document.createElement('td')
+        firsttd.innerHTML = `${counter}.`
+        newtr.appendChild(firsttd)
+
+        const secondtd = document.createElement('td')
+        secondtd.innerHTML = `${e.key}`
+        newtr.appendChild(secondtd)
+
+        const thirdtd = document.createElement('td')
+        thirdtd.innerHTML = `${e.keyCode}`
+        newtr.appendChild(thirdtd)
+
+        const fourthtd = document.createElement('td')
+        fourthtd.innerHTML = `${e.code}`
+        newtr.appendChild(fourthtd)
+ 
+        // Append the new row to tbody
+        tbody.appendChild(newtr)
+    }
+})
+
+</script>
+</html>
