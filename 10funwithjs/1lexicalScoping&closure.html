@@ -1,0 +1,56 @@
+<!-- // lexical scoping gives you access to outer functions scope from an inner function. in js, clousres are created everytime a function is created -->
+<!-- when you return a function, sirf function ke andar ka executional context nhi return hoga, pura lexical scope taht is if outer function exists , to ov pura outer function ke bhi variables n all ka access hoga  -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clousure</title>
+</head>
+<body>
+    <button id="orange">Orange</button>
+    <button id="green">Green</button>
+</body>
+<script>
+    //lexical scoping example
+    function init() {
+        let name = "Mozilla"; 
+        function displayName() {
+            console.log(name); 
+            //inner function displayName can acess outer function ke scope me declare kiya hua name , this is callled lexical scoping    
+        }
+        displayName(); //this shold be called inside outer function scope only 
+    }
+    init();
+
+    //closure example
+    function init2(){
+        const name = "Mozilla"
+        function displayName(){
+            console.log(name);
+        }
+        return displayName; //init function la pura scope jaayega niche myfunc variable
+    }
+    const myfunc = init2()
+    myfunc()
+</script>
+<script>
+    // document.getElementById("orange").onclick = function (){
+    //     document.body.style.backgroundColor = `orange`
+    // }
+    // document.getElementById("green").onclick = function (){
+    //     document.body.style.backgroundColor = `green`
+    // }
+
+    //closure application
+    function clickhandler(color) {
+        return function (){
+            document.body.style.backgroundColor = `${color}`
+        }
+    }
+    document.getElementById("orange").onclick = clickhandler("orange")
+    document.getElementById("green").onclick = clickhandler("green")
+</script>
+</html>
+
+<!-- packed bs holey array : https://chatgpt.com/share/68668559-d45c-8000-b51e-82fc6553b41b -->

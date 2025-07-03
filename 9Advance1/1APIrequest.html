@@ -1,0 +1,95 @@
+<!-- //APIs are communicator between two systems, frontend and backend or anything like that
+//use APIs from randomuserme or github.api/users/ur-username
+
+
+//XMLHttprequest is a heavily ajax programming -->
+<!--  request ready states , columns are value, state and description
+0	UNSENT	Client has been created. open() not called yet.
+1	OPENED	open() has been called.
+2	HEADERS_RECEIVED	send() has been called, and headers and status are available.
+3	LOADING	Downloading; responseText holds partial data.
+4	DONE	The operation is complete. -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AdvanceJS</title>
+    <style>
+        table,
+        td,
+        th {
+            border: 1px solid black;
+        }
+    </style>
+</head>
+
+<body>
+    <table>
+        <tr>
+            <th>value</th>
+            <th>state</th>
+            <th>description</th>
+        </tr>
+        <tr>
+            <td>0</td>
+            <td>UNSENT</td>
+            <td>Client has been created. open() not called yet.</td>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>OPENED</td>
+            <td>open() has been called.</td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>HEADERS_RECEIVED</td>
+            <td>send() has been called, and headers and status are available.</td>
+        </tr>
+        <tr>
+            <td>3</td>
+            <td>LOADING</td>
+            <td>Downloading; responseText holds partial data.</td>
+        </tr>
+        <tr>
+            <td>4</td>
+            <td>DONE</td>
+            <td>The operation is complete.</td>
+        </tr>
+    </table>
+
+    <div class="card">
+        <button id="button">Your Profile</button>
+        <div class="followerCount"></div>
+        <div class="avatar"></div>
+    </div>
+</body>
+<script>
+    const requestURL = "https://api.github.com/users/NabeelAttar"
+    const xhr = new XMLHttpRequest()
+    console.log(xhr.readyState)
+    xhr.open('GET', requestURL)
+    console.log(xhr.readyState)
+    let data;
+    xhr.onreadystatechange = function () {
+        // state change honepe ye function call karega
+        console.log(xhr.readyState);
+        if (xhr.readyState === 4) {
+            //const data = this.responseText
+            //console.log(data.followers); //comes as underfined cuz mostly url sends data as a string, so this.responText is string but .followers is used on an object
+            //console.log(typeof data);
+            //hence we will convert to object
+            data = JSON.parse(this.responseText)
+            console.log(data.followers);
+            console.log(typeof data);
+            console.log(data);
+        }
+    }
+    xhr.send()
+
+    //console.log is not property of core js, while running browser injects it , js is runned by engines like v8 engine, which is written in c++, whole js is wrapped up in c++
+     
+</script>
+</html>

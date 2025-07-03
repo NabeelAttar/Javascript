@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AdvanceJS</title>
+</head>
+
+<body>
+    <div class="card">
+        <button id="button">Your Profile</button>
+        <div class="followerCount"></div>
+        <div class="avatar"></div>
+    </div>
+
+    <script>
+        const requestURL = "https://api.github.com/users/NabeelAttar";
+        const xhr = new XMLHttpRequest();
+        const button = document.getElementById('button');
+        let data; // define data in outer scope
+
+        xhr.open('GET', requestURL);
+
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState === 4 && xhr.status === 200) {
+                data = JSON.parse(this.responseText);
+            }
+        };
+
+        xhr.send();
+
+        button.addEventListener('click', function () {
+            if (data) {
+                document.querySelector('.followerCount').innerHTML = `<h2> follower Count : ${data.followers} </h2>`;
+                document.querySelector('.avatar').innerHTML = `Profile Pic : <img src="${data.avatar_url}" alt="Avatar" width="150">`;
+            } else {
+                alert("Data not loaded yet. Please try again in a second.");
+            }
+        });
+    </script>
+</body>
+
+</html>
